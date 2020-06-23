@@ -26,21 +26,18 @@ public class Consumer implements Runnable {
 	public void run() {
 		LocalTime startTime = nowTime();
 
-		// All messages with the same id must be processed in the order of receipt
-		synchronized (message.getId().intern()) {
-
-			// Simulate the message processing time
-			if (message.getDelay() > 0) {
-				try {
-					TimeUnit.MILLISECONDS.sleep(message.getDelay());
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+		// Simulate the message processing time
+		if (message.getDelay() > 0) {
+			try {
+				TimeUnit.MILLISECONDS.sleep(message.getDelay());
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
-
-			// Log a result
-			log(OUTPUT_LOG, message, currentThread().getName(), startTime, nowTime());
 		}
+
+		// Log a result
+		log(OUTPUT_LOG, message, currentThread().getName(), startTime, nowTime());
+		message.getId().intern().notify();
 	}
 
 }

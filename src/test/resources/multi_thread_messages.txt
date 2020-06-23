@@ -1,7 +1,13 @@
 A|1000|Monday
-B|2000|Wednesday
+B|1000|Wednesday
 D|3000|Friday
 A|50|Tuesday
+A|50|Tuesday2
+A|50|Tuesday3
+A|50|Tuesday4
+A|50|Tuesday5
+A|50|Tuesday6
+A|50|Tuesday7
 B|100|Thursday
 |10000|
 D|100|Saturday

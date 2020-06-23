@@ -14,6 +14,7 @@ public class Launcher {
 		log(START_LOG, nowTime(), consumerCount, filePath);
 
 		consumersManager = new ConsumersManager(consumerCount);
+		consumersManager.start();
 
 		// Standard thread start
 		Producer producer = new Producer(filePath, consumersManager);
